@@ -8,6 +8,7 @@ Map<String, double> dataMap = {
     "Ionic": 2,
   };
 
+
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
 
@@ -23,10 +24,32 @@ class Dashboard extends StatelessWidget {
             const Text('Your spends for June: 30,000'),
             PieChart(dataMap: dataMap,
                     animationDuration: const Duration(milliseconds: 800),
-                    chartRadius: MediaQuery.of(context).size.width / 3.2,),
+                    chartRadius: MediaQuery.of(context).size.width / 5,),
+            DataTable(columns: const<DataColumn>[
+              DataColumn(label: Text('ID'),),
+              DataColumn(label: Text('Category'),),
+              DataColumn(label: Text('Amount'),),
+            ]
+            , rows: const<DataRow>[
+              DataRow(cells: <DataCell>[
+                DataCell(Text('1')),
+                DataCell(Text('Shopping')),
+                DataCell(Text('2000')),
+              ],),
+              DataRow(cells: <DataCell>[
+                DataCell(Text('2')),
+                DataCell(Text('Credit Card')),
+                DataCell(Text('3000')),
+              ],),
+              DataRow(cells: <DataCell>[
+                DataCell(Text('3')),
+                DataCell(Text('Movie')),
+                DataCell(Text('4000')),
+              ],),
+            ])
             
           ],
-
+            
         ),
       ),
     );
